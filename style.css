@@ -1,0 +1,128 @@
+/* =========================================================
+   TEMPLATE DENTISTA — CLÍNICA (equipe, estética premium)
+   Para trocar a identidade visual, edite apenas :root
+   ========================================================= */
+:root{
+  --green:#10302b;        /* verde profundo (principal) */
+  --green-2:#17433b;
+  --gold:#c8a45d;         /* dourado de destaque */
+  --sand:#f5efe4;
+  --bg:#fffdf9;
+  --text:#24302d;
+  --muted:#6f7c78;
+  --radius:16px;
+  --font-title:'Cormorant Garamond',serif;
+  --font-body:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--font-body);font-weight:300;color:var(--text);background:var(--bg);line-height:1.75}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+h1,h2,h3{font-family:var(--font-title);font-weight:600;line-height:1.1}
+h1{font-size:clamp(2.6rem,7vw,5rem)}
+h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+em{color:var(--gold);font-style:italic}
+.container{width:min(1140px,92%);margin-inline:auto}
+.container--narrow{width:min(800px,92%)}
+.section{padding:6rem 0}
+.section--dark{background:var(--green);color:#f1ebdd}
+.section--sand{background:var(--sand)}
+.section__head{text-align:center;max-width:680px;margin:0 auto 3.2rem}
+.eyebrow{display:block;color:var(--gold);font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:.9rem}
+
+/* Botões */
+.btn{display:inline-block;background:var(--gold);color:var(--green);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:1rem 2.2rem;border:1px solid var(--gold);transition:.3s}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn--sm{padding:.6rem 1.2rem;font-size:.68rem}
+
+/* Header */
+.header{position:fixed;inset:0 0 auto 0;z-index:50;color:#fff;transition:.4s}
+.header.scrolled{background:rgba(16,48,43,.95);backdrop-filter:blur(10px)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:76px}
+.logo{font-family:var(--font-title);font-size:1.7rem;font-weight:700;letter-spacing:.12em}
+.logo span{font-size:.85rem;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;font-family:var(--font-body);font-weight:500}
+.menu{display:flex;align-items:center;gap:1.9rem;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+.menu a:not(.btn):hover{color:var(--gold)}
+.burger{display:none;background:none;border:0;width:30px;height:20px;position:relative;cursor:pointer}
+.burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;transition:.3s}
+.burger span:first-child{top:4px}.burger span:last-child{top:14px}
+.burger.open span:first-child{top:9px;transform:rotate(45deg)}.burger.open span:last-child{top:9px;transform:rotate(-45deg)}
+
+/* Hero — TROCAR: use background:url(banner.jpg) center/cover + overlay para foto real */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;text-align:center;background:var(--green)}
+.hero__glow{position:absolute;width:720px;height:720px;border-radius:50%;left:-200px;bottom:-250px;background:radial-gradient(circle,rgba(200,164,93,.3),transparent 65%);animation:float 10s ease-in-out infinite}
+@keyframes float{50%{transform:translate(50px,-40px)}}
+.hero__content{position:relative;max-width:860px}
+.hero p{max-width:540px;margin:1.5rem auto 2.4rem;color:#d7d0bf}
+.hero__note{display:block;margin-top:1.2rem;color:#a9a58f;font-style:italic}
+
+/* Sobre */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:5rem;align-items:center}
+.about__photo{aspect-ratio:3/4;background:linear-gradient(160deg,var(--green-2),var(--gold));background-size:cover;background-position:center;position:relative}
+.about__photo::after{content:"";position:absolute;inset:16px -16px -16px 16px;border:1px solid var(--gold);z-index:-1}
+.about p{color:var(--muted);margin-bottom:2rem}
+.eyebrow--dark{color:var(--gold)}
+.stats{display:flex;gap:2.5rem;border-top:1px solid #e7dcc6;padding-top:1.5rem}
+.stats div{font-family:var(--font-title);font-size:2.2rem;color:var(--gold)}
+.stats b{font-weight:600}
+.stats span{display:block;font:.7rem var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* Equipe */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.6rem}
+.dr{display:grid;grid-template-columns:.8fr 1.2fr;background:var(--green-2);border:1px solid rgba(200,164,93,.2);transition:.4s;overflow:hidden}
+.dr:hover{border-color:var(--gold);transform:translateY(-6px)}
+.dr__photo{min-height:260px;background:linear-gradient(160deg,#2a5d52,var(--gold));background-size:cover;background-position:center}
+.dr__body{padding:1.8rem}
+.dr__body h3{font-size:1.6rem}
+.dr__role{display:block;color:var(--gold);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;margin:.3rem 0 .8rem;font-weight:600}
+.dr__body p{font-size:.9rem;color:#c9c3b0;margin-bottom:1rem}
+.dr__body a{color:var(--gold);font-size:.85rem;font-weight:600}
+
+/* Tratamentos */
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.fcard{position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+.fcard__img{position:absolute;inset:0;background:linear-gradient(160deg,var(--green-2),var(--green));background-size:cover;background-position:center;transition:.6s}
+.fcard:hover .fcard__img{transform:scale(1.08)}
+.fcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,48,43,.9),transparent 60%)}
+.fcard h3{position:relative;z-index:1;padding:1.4rem;font-size:1.4rem}
+.more{text-align:center;margin:3rem 0 1rem;font-size:1.8rem;color:var(--gold)}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.tags li{border:1px solid #e1d3b5;padding:.5rem 1.2rem;border-radius:99px;font-size:.85rem;font-weight:500;transition:.3s}
+.tags li:hover{background:var(--gold);border-color:var(--gold);color:var(--green)}
+
+/* Avaliações */
+.stars{color:var(--gold);font-size:1.4rem;letter-spacing:.2em}
+.slider{text-align:center;min-height:210px}
+.slide{display:none;font-family:var(--font-title);font-size:clamp(1.3rem,2.8vw,1.8rem);line-height:1.4}
+.slide.active{display:block;animation:fade .7s}
+@keyframes fade{from{opacity:0}}
+.slide cite{display:block;margin-top:1rem;font:600 .78rem var(--font-body);color:var(--gold);font-style:normal;letter-spacing:.1em}
+.dots{display:flex;justify-content:center;gap:.6rem;margin-top:1.6rem}
+.dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--gold);background:none;cursor:pointer}
+.dots button.active{background:var(--gold)}
+
+/* Contato */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.info{margin:1.5rem 0 2rem}
+.info li{padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.14);color:#d7d0bf}
+.info strong{display:block;color:var(--gold);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
+.map{aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden}
+.map iframe{width:100%;height:100%;border:0}
+.footer{background:#0a1f1c;color:#8c9a95;text-align:center;padding:1.4rem 0;font-size:.78rem}
+.wpp-float{position:fixed;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:1.5rem;z-index:60;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+
+/* Animação de entrada */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}
+.reveal.visible{opacity:1;transform:none}
+
+/* Responsivo */
+@media(max-width:860px){
+  .burger{display:block}
+  .menu{position:fixed;inset:76px 0 auto 0;background:var(--green);flex-direction:column;padding:2rem;gap:1.4rem;transform:translateY(-130%);transition:.4s}
+  .menu.open{transform:none}
+  .about,.contact{grid-template-columns:1fr;gap:3rem}
+  .about__photo{max-width:340px;width:100%;margin:auto}
+  .dr{grid-template-columns:1fr}.dr__photo{min-height:220px}
+  .section{padding:4rem 0}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero__glow{animation:none}html{scroll-behavior:auto}}
